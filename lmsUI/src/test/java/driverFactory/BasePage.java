@@ -8,46 +8,53 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BasePage {
 
+	private static final String headlessChrome = "headlesschrome";
+	private static final String headlessFirefox = "headlessfirefox";
+	private static final String firefox = "firefox";
 	
-	
-	private static final String headlessChrome = "headlessChrome";
-	private static final String chrome = "Chrome";
-	private static final String headlessFirefox = "headlessFirefox";
-	private static final String firefox = "Firefox";
-	protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-	
+	protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	
 	//return a Singleton WebDriver Instance
 	
-	public static WebDriver getDriver(String browser)
-	{
-	  if(driver.get()== null) // Ensure only one instance is created	
-		{	
+	public static WebDriver driverManager(String browser)	{
+		if(driver.get()== null) // Ensure only one instance is created	
+		{
 		switch(browser.toLowerCase()) {
 		
 		case headlessChrome:
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
+			options.addArguments("window-size=1366,768"); 
 			driver.set(new ChromeDriver(options));
-			System.out.println("in getdriver method");
+			System.out.println("getting headless chrome driver");
         	break;		
-		case headlessFirefox:
-			driver.set(new ChromeDriver());
-			System.out.println("getting chrome driver ");
-			break;
 		case firefox:
+			driver.set(new FirefoxDriver());
+			System.out.println("getting firefox driver ");
+			break;
+		case headlessFirefox:
 			FirefoxOptions ffOptions = new FirefoxOptions();
 			ffOptions.addArguments("headless");
+			ffOptions.addArguments("window-size=1366,768"); 
 			driver.set(new FirefoxDriver(ffOptions));
-			System.out.println("getting chrome driver ");
+			System.out.println("getting headless firefox driver.");
 			break;
 			default:
 				driver.set(new ChromeDriver());
 		}
+		driver.get().manage().window().maximize();
 	}
-		return driver.get();
-}
+		return  driver.get();
+}		
 	
+	//creating public get driver method to enforce Singleton 
+	
+	public static synchronized WebDriver getDriver() {
+		if(driver==null) {
+		}
+		WebDriver dri = driver.get();
+		return dri;
+	}
 	
     public static void quitDriver() {
 		if(driver.get()!=null) {

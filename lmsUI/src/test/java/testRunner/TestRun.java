@@ -17,11 +17,11 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 public class TestRun extends AbstractTestNGCucumberTests{
 	
-	//@Override
-	//@DataProvider(parallel=true)
+	@Override
+	@DataProvider(parallel=true)
 
-	/*public Object[][] scenarios(){
+	public Object[][] scenarios(){
 		
 		return super.scenarios();
-	}*/
+	}
 }

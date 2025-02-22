@@ -1,8 +1,6 @@
 package stepDefinitions;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-
 import driverFactory.BasePage;
 import pageObjects.LoginPage;
 import io.cucumber.java.en.Given;
@@ -12,35 +10,32 @@ import util.PicoDInjection;
 
 public class LoginSteps{
 	
-	    WebDriver driver; 
-	    LoginPage loginPage;
-	
-	    public LoginSteps() {  // Constructor ensures correct driver usage
-	        this.driver = BasePage.getDriver("chrome");
-	        loginPage = new LoginPage(driver);
-	    }
-
-	@Given("Admin is on login Page")
-	public void admin_is_on_login_page() {
+	   PicoDInjection picoObject;
 	    
+	   public LoginSteps(PicoDInjection picoObject){
+	    	this.picoObject=picoObject;	 
+	   }
+	@Given("Admin is on login Page")
+	public void admin_is_on_login_page() throws InterruptedException {
+		picoObject.loginPage= new LoginPage( BasePage.getDriver());		
+		
 	}
 
 	@Given("The browser is open")
 	public void the_browser_is_open() {
-	   
+		System.out.println("given:The browser is open");
 	}
-
 	@When("Admin gives the correct LMS portal URL")
 	public void admin_gives_the_correct_lms_portal_url() throws InterruptedException {
 		
-		loginPage= new LoginPage(driver);		
-		loginPage.navigateToAppUrl();
-		System.out.println("pass");
+		picoObject.loginPage.navigateToAppUrl();
+		//Assert.assertTrue(false);
+		
 	}
 
 	@Then("Admin should land on the login page")
 	public void admin_should_land_on_the_login_page() {
-	    
+		System.out.println("pass");
 	}
 
 	@When("Admin enter valid data in all field and clicks login button")
