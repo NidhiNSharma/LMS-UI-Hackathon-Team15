@@ -1,21 +1,28 @@
-/*package testRunner;
+package testRunner;
 
 import io.cucumber.testng.CucumberOptions;
 
-public class TestRun {
-	@CucumberOptions(
-			features = { ".\\src\\test\\resources\\FeaturesFiles\\" }, 
-			glue = { "stepDefinitions", "applicationHook" },
-			plugin = { "pretty", "html:reports/myreport.html", "rerun:target/rerun.txt",
-					"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-					"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
-			dryRun = false, // checks mapping between scenario steps and step definition methods
-			monochrome = true, // to avoid junk characters in output
-			publish = true // to publish report in cucumber server
-			//tags = "@Login"
-	)
-	public class Runner {
+import org.testng.annotations.DataProvider;
 
-	}
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 
-}*/
+@CucumberOptions(
+					features="src/test/resources/FeaturesFiles/Login.feature",
+					glue={"stepDefinitions","hooks"},
+					monochrome=true,
+					//dryRun=false,
+					plugin= {"pretty","html:target/cucumber-Report.html",}
+		
+		)
+
+public class TestRun extends AbstractTestNGCucumberTests{
+	
+	@Override
+	@DataProvider(parallel=true)
+
+	public Object[][] scenarios(){
+		
+		return super.scenarios();
+	
+}
+}
