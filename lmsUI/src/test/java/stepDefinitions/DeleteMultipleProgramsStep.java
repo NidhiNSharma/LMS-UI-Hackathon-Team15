@@ -1,18 +1,27 @@
 package stepDefinitions;
+import org.testng.Assert;
+
 import io.cucumber.java.en.Given;
 import pageObjects.ProgramPagePart2;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.Assert;
 
 public class DeleteMultipleProgramsStep {
 	public ProgramPagePart2 pp = new ProgramPagePart2();
+	
+	@Given("Admin creates multiple programs with name containing {string}")
+	public void create_multiple_programs_on_program_page(String programName) throws InterruptedException {
+		pp.createProgram(programName+pp.getRandomString(5));
+		pp.createProgram(programName+pp.getRandomString(5));
+		System.out.println("Create program on program page");
+	}
+
 
 	@When("Admin selects more than one program by clicking on the checkbox")
-
 	public void admin_selects_more_than_one_program_by_clicking_on_the_checkbox() {
 		pp.clickOncheckBoxes(2);
 	}
+	
 
 	@Then("Programs get selected")
 	public void programs_get_selected() {

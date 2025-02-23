@@ -4,8 +4,8 @@ Feature: Manage Program - Delete Multiple Program
     Given Admin is on program page after reaching home
 
   Scenario: Verify Admin is able to select multiple programs
-    Given Admin is on Program page
-    When Admin selects more than one program by clicking on the checkbox
+    Given Admin creates multiple programs with name containing "GeethaMultiple"
+    When Admin searches "GeethaMultiple" and selects more than one program by clicking on the checkbox
     Then Programs get selected
 
   Scenario: Verify Admin is able to delete Multiple programs
@@ -22,7 +22,6 @@ Feature: Manage Program - Delete Multiple Program
     Given Admin is on Program Confirm Deletion Page after selecting a program to delet
     When Admin Click on "X" button
     Then Admin can see Confirm Deletion form disappear
-    
 
   Scenario: Verify Admin is able to click 'Yes'
     Given Admin is on Confirmation form for deleting
@@ -31,7 +30,7 @@ Feature: Manage Program - Delete Multiple Program
 
   Scenario: Verify Admin is able to deleted program
     Given Admin is on Program page
-    When Admin Searches for "Deleted Program names"
+    When Admin Searches for "GeethaMultiple"
     Then There should be zero results.
 
  

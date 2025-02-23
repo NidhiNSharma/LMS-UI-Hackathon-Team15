@@ -1,9 +1,11 @@
 package stepDefinitions;
+import org.testng.Assert;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.Assert;
 import pageObjects.ProgramPagePart2;
+
 public class Searchbar {
 	public ProgramPagePart2 pp = new ProgramPagePart2();
 

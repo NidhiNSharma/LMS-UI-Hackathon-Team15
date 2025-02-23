@@ -14,6 +14,7 @@ public class DriverManager {
 	public static Scenario scenario;
 
 	public WebDriver intializeBrowser(String browser) throws Exception {
+		browser = "chrome";
 
 		if (browser.equals("chrome")) {
 			driver = new ChromeDriver();
