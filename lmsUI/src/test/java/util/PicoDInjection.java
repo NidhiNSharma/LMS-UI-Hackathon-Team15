@@ -1,10 +1,11 @@
 package util;
 
+import pageObjects.HomePage;
 import pageObjects.LoginPage;
 
 public class PicoDInjection {
 
-	public static LoginPage loginPage;
-	//public static HomePage homePage;
+	public  LoginPage loginPage;
+	public  HomePage homePage;
 	
 }

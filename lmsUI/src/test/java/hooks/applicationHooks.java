@@ -3,7 +3,6 @@ import org.openqa.selenium.WebDriver;
 import driverFactory.BasePage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import io.cucumber.java.Scenario;
