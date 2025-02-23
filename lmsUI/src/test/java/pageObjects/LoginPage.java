@@ -1,19 +1,22 @@
 package pageObjects;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import driverFactory.BasePage;
+import util.ConfigReader;
 
-//import DriverFactory.BasePage;
 
-public class LoginPage //extends BasePage
+public class LoginPage extends BasePage
 
 {		
-
+	WebDriver driver;
 	public LoginPage(WebDriver driver) {
-		//this.driver =driver;
+		this.driver =driver;
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -35,6 +38,13 @@ public class LoginPage //extends BasePage
 	}
 	public void sendPwdName(String password) {
 		loginpwd.sendKeys(password);
+	}
+	
+	public void navigateToAppUrl() throws InterruptedException {
+		
+		driver.get(ConfigReader.getPropObject().getProperty("appUrl"));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		//Thread.sleep(5000);
 	}
 	
 	//Clicking Logging Button
