@@ -1,9 +1,8 @@
 Feature: Edit icon Validation
  
  Background:
- Given Admin is on batch page
- 
- @batch
+ Given Admin is logged in to LMS Portal
+
   Scenario: Validate Edit icon in batch page
   	Given Admin is on batch page
     When scenario specified in "<SheetName>" and rownumber <RowNumber> Excel

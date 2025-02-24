@@ -1,9 +1,8 @@
 Feature: Add New Batch details pop up
  
  Background:
- Given Admin is on the Batch Details Pop Up WIndow
+ Given Admin is logged in to LMS Portal
  
- @batch
   Scenario: Validate all the fields exist in pop up
   	Given Admin is on the Batch Details Pop Up WIndow
     When Admin checks all the field
@@ -16,7 +15,6 @@ Feature: Add New Batch details pop up
 	|"Status : *"|
 	|"Number of Classes*"|
 
-@batch
   Scenario: Validate details in Add new batch pop up
   	Given Admin is on the Batch Details Pop Up WIndow
     When scenario specified is executed in "<SheetName>" and rownumber <RowNumber>
@@ -43,7 +41,7 @@ Feature: Add New Batch details pop up
  		 | Details    |         17| 		 
  		 | Details    |         18|
  		  		 
-@batch
+
   Scenario: validate close icon on the batch details pop up details in Add new batch pop up
   	Given Admin is on the Batch Details Pop Up WIndow
     When Admin clicks on the close icon
