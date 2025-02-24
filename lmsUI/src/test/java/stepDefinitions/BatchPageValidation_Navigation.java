@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.Properties;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import driverFactory.BasePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.BatchPage;
 import pageObjects.HomePage;
+import pageObjects.LoginPage;
 import util.ConfigReader;
 import util.PicoDInjection;
 
@@ -22,7 +25,16 @@ public class BatchPageValidation_Navigation {
 	public BatchPageValidation_Navigation(PicoDInjection picoObject) {
 		this.picoObject = picoObject;
 	}
-
+	@Given("Admin is logged in to LMS Portal")
+	public void admin_is_logged_in_to_lms_portal() throws InterruptedException {
+		picoObject.loginPage= new LoginPage( BasePage.getDriver());	
+		picoObject.loginPage.navigateToAppUrl();
+		picoObject.loginPage.sendUserName("sdetnumpyninja@gmail.com");
+		picoObject.loginPage.sendPwdName("Feb@2025");;
+		picoObject.loginPage.sendRoleAsAdmin();
+		picoObject.loginPage.clickLogin();
+		
+	}
 	@Given("Admin is on the home Page")
 	public void admin_is_on_the_home_page() throws Throwable {
 		picoObject.homePage = new HomePage(picoObject.loginPage.getDriver());
