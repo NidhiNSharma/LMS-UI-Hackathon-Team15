@@ -5,13 +5,11 @@ Feature: Search box
     Given Admin Is on the Manage Class Page after login
 
   Scenario: Verify Next page link(>)
-    Given Admin is on the Manage Class Page
     When Admin clicks Next page link on the class table
     Then Admin should see the next page record on the table with Pagination has next active link enabled
 
   @ClassPagination
   Scenario: Verify Last page link(>>)
-    Given Admin is on the Manage Class Page
     When Admin clicks Last page link
     Then Admin should see the last page record on the table with Next page link are disabled
 

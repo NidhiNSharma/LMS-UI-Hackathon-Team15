@@ -9,23 +9,22 @@ Feature: Sort Class Details
     When Admin clicks the delete icon
     Then Admin should see a alert open with heading "Confirm" along with  <YES> and <NO> button for deletion
 
-  @DeleteClass
-  Scenario: Click Yes on deletion window
-    Given Admin is on Confirm Deletion alert
-    When Admin clicks Yes option
-    Then Admin gets a message "Successful Class Deleted" alert and do not see that Class in the data table
 
   @DeleteClass
-  Scenario: Click No on deletion window
+  Scenario: Click Yes/No on deletion window
     Given Admin is on Confirm Deletion alert
     When Admin clicks No option
     Then Admin can see the deletion alert disappears without deleting
+    Then Admin clicks Yes option
+    Then  Admin gets a message "Successful Class Deleted" alert and do not see that Class in the data table
+ 
 
   @DeleteClass
   Scenario: Validate Close(X) icon on Confirm Deletion alert
     Given Admin is on Confirm Deletion alert
     When Admin clicks on close button
     Then Admin can see the deletion alert disappears without any changes
+ 
 
   @DeleteMultipleClass
   Scenario: Validate Common Delete button enabled after clicking on any checkbox
@@ -50,6 +49,5 @@ Feature: Sort Class Details
     Given Admin is on Confirm Deletion alert
     When Admin clicks <YES> button on the alert
     Then Admin should land on Manage Class Page and can see the selected class is not deleted from the data table
-    Given Class is on Confirm Deletion alert
     When Admin clicks <NO> button on the alert
     Then Admin should land on Manage Class Page and can see the selected class is deleted from the data table

@@ -1,20 +1,15 @@
-@AddNewClass
+
 Feature: Add New Class
 
   Background: 
     Given Admin Is on the Manage Class Page after login
 
-  Scenario: Validate Class Details Popup window
-    Given Admin is on the Manage Class Page
+   @AddNewClass 
+  Scenario: Validate Class Details Popup window, input fields and their text boxes in Class details form
     When Admin clicks a add new class under the class menu bar
-    Then Admin should see a popup open for class details with empty form along with <SAVE> and <CANCEL> button and Close(X) Icon on the top right corner of the window
-
-  @AddNewClass
-  Scenario: Validate input fields and their text boxes in Class details form
-    Given Admin is on the Manage Class Page
-    When Admin clicks a add new Class under the Class menu bar
+    Then Admin should see a popup open for class details with empty form along with <SAVE> and <CANCEL> button and Close(X) Icon on the top right corner of the window   
     Then Admin should see few input fields and their respective text boxes in the class details window
-
+  
   @AddNewClassPopup
   Scenario: Check if Class is created when only mandatory fields are entered with valid data
     Given Admin is on the Class Popup window
