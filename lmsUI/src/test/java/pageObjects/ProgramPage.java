@@ -75,4 +75,32 @@ public class ProgramPage {
 	public List<WebElement> checkBoxStatusInRows() {
 		return rowCheckBox;
 	}
+	public Object programNameHeaderValidation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Object programDescriptionHeaderValidation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Object programStatusHeaderValidation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Object editDeleteHeaderValidation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public CharSequence programNameArrowIconValidation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public CharSequence programDescriptionArrowIconValidation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public CharSequence programStatusArrowIconValidation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
