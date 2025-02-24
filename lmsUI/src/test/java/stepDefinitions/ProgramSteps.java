@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -10,6 +11,7 @@ import io.cucumber.java.en.When;
 import pageObjects.ProgramPage;
 import util.LoggerLoad;
 import util.PicoDInjection;
+import util.ElementUtil;
 
 public class ProgramSteps {
 
@@ -29,7 +31,7 @@ public class ProgramSteps {
 	public void admin_is_on_home_page_after_login() {
 		picoObject.homePage = picoObject.loginPage.getHomePageObject();
 		String pageTitle = picoObject.homePage.getHomePageTitle();
-		//picoObject.programPage = new ProgramPage(BasePage.getDriver());
+		// picoObject.programPage = new ProgramPage(BasePage.getDriver());
 		LoggerLoad.info("Admin is on home page after login");
 
 	}
@@ -38,8 +40,8 @@ public class ProgramSteps {
 	public void admin_clicks_on_the_navigation_bar(String Program) throws InterruptedException {
 		picoObject.homePage.clickOnProgram();
 		Thread.sleep(10);
-		picoObject.programPage	=picoObject.homePage.getProgrampageObject();
-	    //picoObject.programPage.clickProgramButton();
+		picoObject.programPage = picoObject.homePage.getProgrampageObject();
+		// picoObject.programPage.clickProgramButton();
 		LoggerLoad.info("Admin clicked on " + Program + "from navigation bar");
 	}
 
@@ -100,14 +102,18 @@ public class ProgramSteps {
 	@Then("Admin should see Search bar with text as {string}")
 	public void admin_should_see_search_bar_with_text_as(String string) {
 		Assert.assertEquals(picoObject.programPage.searchBoxValidation(), "Search...");
-		LoggerLoad
-				.info("Admin should see Search bar with text as " + picoObject.programPage.searchBoxValidation() + ".");
+		LoggerLoad.info("Admin should see Search bar with text as " + picoObject.programPage.searchBoxValidation() + ".");
 	}
 
 	// #9
-	@Then("Admin should see data table with column header on the Manage Program Page as  Program Name, Program Description, Program Status, Edit\\/Delete")
-	public void admin_should_see_data_table_with_column_header_on_the_manage_program_page_as_program_name_program_description_program_status_edit_delete() {
+	@Then("Admin should see data table on the Manage Program Page with column headers")
+	public void dmin_should_see_data_table_on_the_manage_program_page_with_column_headers() {
 
+		Assert.assertTrue("Program Name".equals(picoObject.programPage.programNameHeaderValidation()));
+		Assert.assertTrue("Program Description".equals(picoObject.programPage.programDescriptionHeaderValidation()));
+		Assert.assertTrue("Program Status".equals(picoObject.programPage.programStatusHeaderValidation()));
+		Assert.assertTrue("Edit / Delete".equals(picoObject.programPage.editDeleteHeaderValidation()));
+		LoggerLoad.info("Admin should see data table on the Manage Program Page with column headers");
 	}
 
 	// #10
@@ -120,20 +126,47 @@ public class ProgramSteps {
 	// #11
 	@Then("Admin should see check box default state as unchecked on the left side in all rows against program name")
 	public void admin_should_see_check_box_default_state_as_unchecked_on_the_left_side_in_all_rows_against_program_name() {
-
+		picoObject.pageUtils = picoObject.getCurrentPageUtils(picoObject.programPage.numberOfRecordstextValidate());
+		for (int i = 1; i <= picoObject.pageUtils.getRecordsPerPage(); i++) {
+			WebElement rowCheckBox = BasePage.getDriver().findElement(By.xpath(
+					"/html/body/app-root/app-program/div/mat-card/mat-card-content/p-table/div/div[1]/table/tbody/tr["
+							+ i + "]/td[1]/p-tablecheckbox/div/div[2]"));
+			Assert.assertTrue(rowCheckBox.isDisplayed());
+			LoggerLoad.info("Admin should see check box on the left side in all rows of the data table");
+		}
 	}
 
-	// #12
+	// #12 sort icon
 	@Then("Admin should see the sort arrow icon beside to each column header except Edit and Delete")
 	public void admin_should_see_the_sort_arrow_icon_beside_to_each_column_header_except_edit_and_delete() {
-
+		Assert.assertTrue("programName".contains(picoObject.programPage.programNameArrowIconValidation()));
+		Assert.assertTrue(
+				"Program Description".contains(picoObject.programPage.programDescriptionArrowIconValidation()));
+		Assert.assertTrue("Program Status".contains(picoObject.programPage.programStatusArrowIconValidation()));
+		Assert.assertTrue("Edit / Delete".equals(picoObject.programPage.editDeleteHeaderValidation()));
+		LoggerLoad.info("Admin should see the sort arrow icon beside to each column header except Edit and Delete");
 	}
 
 	// #13
 	@Then("Admin should see the Edit and Delete buttons on each row of the data table")
 	public void admin_should_see_the_edit_and_delete_buttons_on_each_row_of_the_data_table() {
+		picoObject.pageUtils = picoObject.getCurrentPageUtils(picoObject.programPage.numberOfRecordstextValidate());
 
-		
+		for (int i = 1; i <= picoObject.pageUtils.getRecordsPerPage(); i++) {
+			WebElement rowEditIcon = BasePage.getDriver().findElement(By.xpath(
+					"/html/body/app-root/app-program/div/mat-card/mat-card-content/p-table/div/div[1]/table/tbody/tr["
+							+ i + "]/td[5]/div/span/button[1]/span[1]"));
+			Assert.assertTrue(rowEditIcon.isDisplayed());
+		}
+
+		for (int i = 1; i <= picoObject.pageUtils.getRecordsPerPage(); i++) {
+			WebElement rowdeleteicon = BasePage.getDriver().findElement(By.xpath(
+					"/html/body/app-root/app-program/div/mat-card/mat-card-content/p-table/div/div[1]/table/tbody/tr["
+							+ i + "]/td[5]/div/span/button[2]/span[1]"));
+			Assert.assertTrue(rowdeleteicon.isDisplayed());
+			LoggerLoad.info("Admin should see the Edit and Delete buttons on each row of the data table");
+		}
+
 	}
 
 	// #14 Showing x to x of y entries
