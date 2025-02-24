@@ -1,3 +1,4 @@
+
 package pageObjects;
 
 import java.time.Duration;
@@ -95,4 +96,3 @@ public class LoginPage extends BasePage
 	
 	
 }
-

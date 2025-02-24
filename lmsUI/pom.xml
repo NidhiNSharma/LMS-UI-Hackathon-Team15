@@ -15,6 +15,28 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+<<<<<<< HEAD
+  <dependencies>
+  <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.7.1</version>
+    <scope>test</scope>
+</dependency>
+    
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>7.14.0</version>
+</dependency>
+
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-testng</artifactId>
+    <version>7.14.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+=======
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -43,6 +65,7 @@
 			<version>6.11.0</version>
 			<scope>test</scope>
 		</dependency>
+>>>>>>> 48e05ed77041b935f4021b8a9dff4995e40a9431
 
 		<!--
 		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -76,12 +99,16 @@
 		</dependency>
 
 
+<<<<<<< HEAD
+	
+=======
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-testng</artifactId>
 			<version>7.14.0</version>
 		</dependency>
+>>>>>>> 48e05ed77041b935f4021b8a9dff4995e40a9431
 		<dependency>
 			<!--
 			https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->

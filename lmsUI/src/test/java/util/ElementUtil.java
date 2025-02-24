@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 48e05ed77041b935f4021b8a9dff4995e40a9431
 package util;
 
 import java.time.Duration;
@@ -9,7 +13,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ElementUtil {
 
 	
+<<<<<<< HEAD
+=======
 
+>>>>>>> 48e05ed77041b935f4021b8a9dff4995e40a9431
 	//common page load wait
 	  public static void implicitPageWait(WebDriver driver) {	
 
@@ -57,4 +64,9 @@ public class ElementUtil {
 	
 	
 	
+<<<<<<< HEAD
+	
+	
+=======
+>>>>>>> 48e05ed77041b935f4021b8a9dff4995e40a9431
 }
