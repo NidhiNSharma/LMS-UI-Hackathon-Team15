@@ -1,7 +1,7 @@
 Feature: Batch Page validation 
  
  Background:
- Given: Admin is on the home page after Login
+ Given Admin is logged in to LMS Portal
     
 @batch
   Scenario: Validate Title in Batch Page

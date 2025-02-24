@@ -1,3 +1,4 @@
+
 package stepDefinitions;
 
 import org.testng.Assert;
@@ -20,32 +21,59 @@ public class LoginSteps{
 		picoObject.loginPage= new LoginPage( BasePage.getDriver());		
 		
 	}
-
 	@Given("The browser is open")
 	public void the_browser_is_open() {
-		System.out.println("given:The browser is open");
+		System.out.println("browser is opened");
 	}
 	@When("Admin gives the correct LMS portal URL")
 	public void admin_gives_the_correct_lms_portal_url() throws InterruptedException {
-		
 		picoObject.loginPage.navigateToAppUrl();
-		//Assert.assertTrue(false);
-		
 	}
-
 	@Then("Admin should land on the login page")
 	public void admin_should_land_on_the_login_page() {
-		System.out.println("pass");
+		
+		String loginUrl = picoObject.loginPage.getPageUrl();
+		String loginTitle = picoObject.loginPage.getPageTitle();
+		
+		System.out.println("page Url is in setpdef:-"+picoObject.loginPage.getPageUrl());
+		System.out.println("Page title is :-"+picoObject.loginPage.getPageTitle());
+		
+		Assert.assertTrue(loginUrl.contains("login"));
+		Assert.assertEquals(loginTitle, "LMS");
 	}
 
-	@When("Admin enter valid data in all field and clicks login button")
-	public void admin_enter_valid_data_in_all_field_and_clicks_login_button() {
-	    
+	@When("Admin enter valid username as {string} ,password as {string} and role as {string}")
+	public void admin_enter_valid_username_as_password_as_and_role_as(String username, String pwd, String role) 
+	{
+			
+		picoObject.loginPage.sendUserName(username);
+		picoObject.loginPage.sendPwdName(pwd);;
+		picoObject.loginPage.sendRoleAsAdmin();
 	}
 
+	@When("clicks login button")
+	public void clicks_login_button() {
+		
+		picoObject.loginPage.clickLogin();
+	}
 	@Then("Admin should land on home page")
-	public void admin_should_land_on_home_page() {
+	public void admin_should_land_on_home_page() throws InterruptedException {
 	   
+		picoObject.homePage = picoObject.loginPage.getHomePageObject();	
+	    String pageTitle =	picoObject.homePage.getHomePageTitle();
+		Assert.assertEquals(pageTitle, "LMS");
+		Assert.assertTrue(picoObject.homePage.isHomePageToolBarPresent());
+	}
+	
+	@Given("Admin is logged in to LMS Portal")
+	public void admin_is_logged_in_to_lms_portal() throws InterruptedException {
+		picoObject.loginPage= new LoginPage( BasePage.getDriver());	
+		picoObject.loginPage.navigateToAppUrl();
+		picoObject.loginPage.sendUserName("sdetnumpyninja@gmail.com");
+		picoObject.loginPage.sendPwdName("Feb@2025");;
+		picoObject.loginPage.sendRoleAsAdmin();
+		picoObject.loginPage.clickLogin();
+		
 	}
 
 

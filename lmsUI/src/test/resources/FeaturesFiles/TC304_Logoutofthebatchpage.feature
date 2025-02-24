@@ -1,7 +1,7 @@
 Feature: LogOut of the application from the batch page
  
  Background:
- Given: Admin is on  Batch page
+ Given Admin is on batch page
     
  @batch
   Scenario: Validate logout option in the header is visible and enabled from the batch page

@@ -7,10 +7,11 @@ Background:
   		Given The browser is open
   		When Admin gives the correct LMS portal URL
   		Then Admin should land on the login page
-  
+  @validlogin
   Scenario: Validate login with valid data in all field	
-  		Given Admin is on login Page
-  		When Admin enter valid data in all field and clicks login button 
+  		Given Admin gives the correct LMS portal URL
+  		When Admin enter valid username as "sdetnumpyninja@gmail.com" ,password as "Feb@2025" and role as "Admin" 
+  		And clicks login button 
   		Then Admin should land on home page 
 	
   		

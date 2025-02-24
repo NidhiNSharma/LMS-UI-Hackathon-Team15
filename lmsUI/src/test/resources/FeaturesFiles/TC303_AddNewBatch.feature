@@ -1,7 +1,7 @@
 Feature: Add New Batch validation 
  
  Background:
- Given: Admin is on the Batch page
+ Given Admin is on batch page
     
  @batch
   Scenario: Verify sub menu displayed in batch menu bar

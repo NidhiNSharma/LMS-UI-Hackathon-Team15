@@ -1,7 +1,7 @@
 Feature: Search Text box validation 
  
  Background:
- Given: Admin is on the Batch page
+ Given Admin is on the Batch page
     
  @batch
   Scenario: validate search box functionality
