@@ -1,13 +1,34 @@
 package util;
 
-import pageObjects.BatchPage;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.ProgramPage;
 
 public class PicoDInjection {
 
-	public  LoginPage loginPage;
-	public  HomePage homePage;
-	public  BatchPage batchPage;
+	public LoginPage loginPage;
+	public HomePage homePage;
+	public ProgramPage programPage;
 	
+	public PageUtils pageUtils;
+	
+	
+	 /* Invoke whenn there is a change to the results in the page
+	  (Number of rows / pages may change based on add / delete operations)*/
+	 
+	public PageUtils getPageUtils(String rowsInfo) {
+		pageUtils = new PageUtils(rowsInfo);
+		return pageUtils;
+	}
+	
+	
+	// Invoke whenn there is no change to the results in the page
+	 
+	public PageUtils getCurrentPageUtils(String rowsInfo) {
+		if (pageUtils == null) {
+			return getPageUtils(rowsInfo);
+		}
+		
+		return pageUtils;
+	}
 }

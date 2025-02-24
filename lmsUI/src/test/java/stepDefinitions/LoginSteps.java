@@ -1,4 +1,5 @@
 
+
 package stepDefinitions;
 
 import org.testng.Assert;
@@ -62,18 +63,7 @@ public class LoginSteps{
 		picoObject.homePage = picoObject.loginPage.getHomePageObject();	
 	    String pageTitle =	picoObject.homePage.getHomePageTitle();
 		Assert.assertEquals(pageTitle, "LMS");
-		Assert.assertTrue(picoObject.homePage.isHomePageToolBarPresent());
-	}
-	
-	@Given("Admin is logged in to LMS Portal")
-	public void admin_is_logged_in_to_lms_portal() throws InterruptedException {
-		picoObject.loginPage= new LoginPage( BasePage.getDriver());	
-		picoObject.loginPage.navigateToAppUrl();
-		picoObject.loginPage.sendUserName("sdetnumpyninja@gmail.com");
-		picoObject.loginPage.sendPwdName("Feb@2025");;
-		picoObject.loginPage.sendRoleAsAdmin();
-		picoObject.loginPage.clickLogin();
-		
+		Assert.assertTrue(picoObject.homePage.isHomePageToolBarPresent());;
 	}
 
 

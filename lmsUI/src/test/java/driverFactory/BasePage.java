@@ -62,4 +62,6 @@ public class BasePage {
     	driver.remove();//Clear thread-local storage
 		}
 	}
+
 }
+
