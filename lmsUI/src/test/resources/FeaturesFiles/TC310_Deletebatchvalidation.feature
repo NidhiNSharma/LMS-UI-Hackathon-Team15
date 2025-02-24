@@ -1,7 +1,7 @@
-Feature: Delete multiple batches with checkbox
+Feature: Delete batch with checkbox
  
  Background:
- Given Admin is on batch page
+ Given Admin is logged in to LMS Portal
  
  @batch
   Scenario:Validate validate delete Icon on any row

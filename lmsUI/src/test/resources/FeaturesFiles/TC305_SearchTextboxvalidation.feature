@@ -1,9 +1,9 @@
 Feature: Search Text box validation 
  
  Background:
- Given Admin is on the Batch page
+ Given Admin is logged in to LMS Portal
     
- @batch
+
   Scenario: validate search box functionality
   	Given Admin is on batch page
     When Admin enters the batch name in the search text box <batchname>
