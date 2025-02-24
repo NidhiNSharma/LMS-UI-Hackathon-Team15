@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /target/
 =======
 .metadata
@@ -62,3 +63,6 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 >>>>>>> 6660219335ed29da60f6d8ca1c3d47815f3a3045
+=======
+/target/
+>>>>>>> hima
