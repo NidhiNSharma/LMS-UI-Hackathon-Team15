@@ -33,4 +33,6 @@ public class applicationHooks extends BasePage {
 	
 	quitDriver();
   }
+
 }
+

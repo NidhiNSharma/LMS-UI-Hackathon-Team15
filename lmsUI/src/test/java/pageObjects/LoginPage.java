@@ -1,3 +1,4 @@
+
 package pageObjects;
 
 import java.time.Duration;
@@ -75,6 +76,7 @@ public class LoginPage extends BasePage
 		ElementUtil.waitForElementClickablity(driver, loginrole, 20L).click();
 		ElementUtil.waitForElementClickablity(driver, loginrolevalue, 20L).click();
 	}
+<<<<<<< HEAD
 
 	public void sendRole(String role) throws InterruptedException {
 		ElementUtil.waitForElementClickablity(driver, loginrole, 20L).click();
@@ -108,4 +110,27 @@ public class LoginPage extends BasePage
 		return homePage;
 	}
 
+=======
+		
+	public void clickLogin() {
+		
+		ElementUtil.waitForElementClickablity(driver, loginBtn, 10L).click();
+		//btnLogin.click();
+	}
+	public void clickLogout() 
+	  { 
+		ElementUtil.waitForElementClickablity(driver, homelogout, 10L).click();
+	  }	
+	
+	
+	public HomePage getHomePageObject() {
+		
+//when ever user redirected to new page that method shld return new page object.	   
+	   HomePage  homePage = new HomePage(driver);//this driver has a reference home page driver
+	   return homePage;
+	}
+	
+	
+	
+>>>>>>> b073ed976815e475982b6382909bcfa8487b52fe
 }
