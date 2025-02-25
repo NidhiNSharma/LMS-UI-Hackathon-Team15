@@ -102,7 +102,8 @@ public class ProgramSteps {
 	@Then("Admin should see Search bar with text as {string}")
 	public void admin_should_see_search_bar_with_text_as(String string) {
 		Assert.assertEquals(picoObject.programPage.searchBoxValidation(), "Search...");
-		LoggerLoad.info("Admin should see Search bar with text as " + picoObject.programPage.searchBoxValidation() + ".");
+		LoggerLoad
+				.info("Admin should see Search bar with text as " + picoObject.programPage.searchBoxValidation() + ".");
 	}
 
 	// #9
@@ -186,6 +187,122 @@ public class ProgramSteps {
 		LoggerLoad.info("Footer Message ------>" + picoObject.programPage.getFooterMessage());
 		Assert.assertTrue(picoObject.programPage.getFooterMessage().startsWith("In total there are ")
 				&& picoObject.programPage.getFooterMessage().endsWith(" programs."));
+	}
+
+	// -------------------------Add New program -----------------------//
+
+	@Given("Admin is on Manage Program Page")
+	public void admin_is_on_manage_program_page() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin clicks <A New Program> button")
+	public void admin_clicks_a_new_program_button() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Admin should see a popup open for Program details with empty form along with <SAVE> and <CANCEL> button and Close\\(X) Icon on the top right corner of the window")
+	public void admin_should_see_a_popup_open_for_program_details_with_empty_form_along_with_save_and_cancel_button_and_close_x_icon_on_the_top_right_corner_of_the_window() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Admin should see two input fields and their respective text boxes in the program details window")
+	public void admin_should_see_two_input_fields_and_their_respective_text_boxes_in_the_program_details_window() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Admin should see two radio button for Program Status")
+	public void admin_should_see_two_radio_button_for_program_status() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("Admin is on {string} Popup window")
+	public void admin_is_on_popup_window(String string) {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin clicks <Save>button without entering any data")
+	public void admin_clicks_save_button_without_entering_any_data() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Admin gets a Error message alertProgram")
+	public void admin_gets_a_error_message_alert_program() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin enter value only in ProgramName using {string} and {int}")
+	public void admin_enter_value_only_in_program_name_using_and(String string, Integer int1) {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin clicks Save Button")
+	public void admin_clicks_save_button() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("admin gets a message alert for description")
+	public void admin_gets_a_message_alert_for_description() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin enters only numbers or special char in name and desc column {string} and {int}")
+	public void admin_enters_only_numbers_or_special_char_in_name_and_desc_column_and(String string, Integer int1) {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Admin gets a Error message alert SpecialCharecters")
+	public void admin_gets_a_error_message_alert_special_charecters() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin clicks Close\\(X) Icon on Program Details form")
+	public void admin_clicks_close_x_icon_on_program_details_form() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Program Details popup window should be closed without savings")
+	public void program_details_popup_window_should_be_closed_without_savings() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Enter all the required fields with valid values {string} and {int}")
+	public void enter_all_the_required_fields_with_valid_values_and(String string, Integer int1) {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Admin gets a message {string} alert and able to see the new program added in the data table")
+	public void admin_gets_a_message_alert_and_able_to_see_the_new_program_added_in_the_data_table(String string) {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@When("Admin clicks <Cancel>buttonProgram")
+	public void admin_clicks_cancel_button_program() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("Admin can see the Program details popup disappears without creating any program")
+	public void admin_can_see_the_program_details_popup_disappears_without_creating_any_program() {
+		// Write code here that turns the phrase above into concrete actions
+		throw new io.cucumber.java.PendingException();
 	}
 
 }

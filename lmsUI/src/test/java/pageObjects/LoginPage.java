@@ -82,8 +82,8 @@ public class LoginPage extends BasePage
 		ElementUtil.waitForElementClickablity(driver, loginrole, 20L).click();
 		for (WebElement e : selectingRole)// Admin,Staff,Student
 		{
-			System.out.println(e.getText());
-			System.out.println("role :" + role);
+			//System.out.println(e.getText());
+			//System.out.println("role :" + role);
 
 			if (e.getText().contains(role) ){
 				e.click();
