@@ -11,17 +11,7 @@ public class ConfigReader {
 
 	private static void readConfigFile(){
 
-<<<<<<< HEAD
-	try {
-		pro = new Properties();
-		FileReader file = new FileReader("src/test/resources/Config/config.properties");
-		pro.load(file);
-	   } catch (Exception e) {
-		      System.out.println(e.getMessage());
-        }
-    }
-	
-=======
+
 		try {
 
 			pro = new Properties();
@@ -33,7 +23,7 @@ public class ConfigReader {
 		}
 	}
 
->>>>>>> 74c1483c2cff2e84c6a083aa36c39de27baf61c8
+
 	public static Properties getPropObject() {
 
 		if( pro == null ) {
