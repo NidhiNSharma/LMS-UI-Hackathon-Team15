@@ -38,9 +38,11 @@ public class ClassPage {
   //Add New Class  
     @FindBy(xpath = "//button[normalize-space()='Add New Class']")
     public static WebElement addNewClass ;
+    @FindBy(id = "pr_id_4-label")
+    public static WebElement addPopupBoxHeader ; 
     @FindBy(xpath = "//input[@placeholder='Select a Batch Name']")
     public static WebElement classBatchName;
-    @FindBy(id = "pr_id_4-label")
+    @FindBy(id = "//div[@class='p-dialog-header ng-tns-c81-10 ng-star-inserted']")
     public static WebElement addPopupBox;   
     @FindBy(xpath = "//span[@class='p-dropdown-trigger-icon ng-tns-c88-10 pi pi-chevron-down']")
     public static WebElement batchNameDropDown; 
@@ -59,7 +61,9 @@ public class ClassPage {
     @FindBy(xpath = "//span[normalize-space()='Save']")
     public static WebElement saveButton;
     @FindBy(className = "p-dialog-header-close-icon ng-tns-c81-5 pi pi-times")
-    public static WebElement closeClassDetails;   
+    public static WebElement closeClassDetails;
+    @FindBy(xpath = "//small[normalize-space()='Batch Name is required.']")
+    public static WebElement errorMsg;
     
 	
 	public void clickClassButton() {
@@ -117,8 +121,8 @@ public class ClassPage {
    public void classDates() {
    	selectClassDates.click();
    }
-   public boolean validateAddPopupBox() {
-	 return addPopupBox.isDisplayed();
+   public boolean validateAddPopupBoxHeader() {
+	 return addPopupBoxHeader.isDisplayed();
     }
    public boolean validatePopupSaveButton() {
 		 return addPopupBox.isDisplayed();
@@ -130,15 +134,32 @@ public class ClassPage {
 		 return addPopupBox.isDisplayed();
 	    }
 
+   public boolean validateAddPopupBox() {
+	return addPopupBox.isDisplayed();
+}
+   public void clickOnPopupSaveButton() {
+	   saveButton.click();		
+	}
+   public void clickOnPopupCancelButton() {
+	   cancelButton.click();
+   }
+   public boolean validateErrorMsg( ) {
+	   return errorMsg.isDisplayed();
+   }
+  
+
    //Search Box
    public void clickOnSearchTextBox() {
    	       searchBox.click();
    }
+
+
+}
  
 
   
 
-   }
+ 
 
 
 

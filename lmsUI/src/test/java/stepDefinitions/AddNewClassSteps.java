@@ -3,19 +3,27 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
-
+import util.ExcelReader;
 import util.LoggerLoad;
 import util.PicoDInjection;
+
+import java.sql.Driver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 
 		public class AddNewClassSteps{
 		
-		   PicoDInjection picoObject;
-		    
-		   public AddNewClassSteps(PicoDInjection picoObject){
-		    	this.picoObject=picoObject;	 
-		   }
+			PicoDInjection picoObject;
+			Actions act;
+			private ExcelReader reader = new ExcelReader();
+			public AddNewClassSteps(PicoDInjection picoObject) {
+				this.picoObject = picoObject;
+			}
 
 			@Given("Admin is logged in to LMS Portal")
 			public void admin_is_logged_in_to_lms_portal() {
@@ -69,23 +77,18 @@ import util.PicoDInjection;
 				Assert.assertEquals(picoObject.classPage.validatePopupCloseButton(), true);
 				LoggerLoad.info("Admin should see Close button");
              }
-			@When("Admin clicks a add new Class under the Class menu bar")
-			public void a_admin_clicks_a_add_new_class_under_the_class_menu_bar() {
-			
-			 }
-
-			@Then("Admin should see few input fields and their respective text boxes in the class details window")
-			public void admin_should_see_few_input_fields_and_their_respective_text_boxes_in_the_class_details_window() {
-		
-			}
-
+	
 			@Given("Admin is on the Class Popup window")
 			public void admin_is_on_the_class_popup_window() {
+				Assert.assertEquals(picoObject.classPage.validateAddPopupBoxHeader(), true);
+				LoggerLoad.info("Admin should see Popup Box");
 			  
 			}
 
 			@When("Admin enters mandatory fields in the form and clicks on save button")
 			public void admin_enters_mandatory_fields_in_the_form_and_clicks_on_save_button() {
+				
+
 			
 		
 			}
@@ -105,12 +108,11 @@ import util.PicoDInjection;
 			public void admin_should_see_number_of_class_value_is_added_automatically() {
 				
 			}
-
-			@When("Admin clicks date picker")
+			@Then("Admin clicks date picker")
 			public void admin_clicks_date_picker() {
-			
-			
+				
 			}
+
 
 			@Then("Admin should see weekends dates are disabled to select")
 			public void admin_should_see_weekends_dates_are_disabled_to_select() {
@@ -126,14 +128,14 @@ import util.PicoDInjection;
 
 			@Then("Admin should see error message below the test field and the field will be highlighted in red color")
 			public void admin_should_see_error_message_below_the_test_field_and_the_field_will_be_highlighted_in_red_color() {
-
-			 
+				Assert.assertEquals(picoObject.classPage.validateErrorMsg(), true);
+				LoggerLoad.info("Admin should see Close button");
+		 
 			}
 
 			@When("Admin enters invalid data in all of the  fields in the form and clicks on save button")
 			public void admin_enters_invalid_data_in_all_of_the_fields_in_the_form_and_clicks_on_save_button() {
 				
-	
 
 			}
 
@@ -145,20 +147,24 @@ import util.PicoDInjection;
 
 			@When("Admin clicks on save button without entering data")
 			public void admin_clicks_on_save_button_without_entering_data() {
+				picoObject.classPage.clickOnPopupSaveButton();
 			
 			   
 			}
 
 			@Then("Class will not  created and Admin gets error message")
 			public void class_will_not_created_and_admin_gets_error_message() {
+				picoObject.classPage.validateErrorMsg();
+				Assert.assertTrue(picoObject.classPage.validateErrorMsg());
 				
 			
 			}
 
 			@When("Admin clicks Cancel Icon on Class Details form")
 			public void admin_clicks_cancel_icon_on_class_details_form() {
-			
-			}
+					picoObject.classPage.clickOnPopupCancelButton();
+				  
+				}
 
 			@Then("Class Details popup window should be closed without saving")
 			public void class_details_popup_window_should_be_closed_without_saving() {
@@ -167,6 +173,7 @@ import util.PicoDInjection;
 
 			@When("Admin clicks save button")
 			public void admin_clicks_save_button() {
+				picoObject.classPage.clickOnPopupSaveButton();
 			  
 			}
 
