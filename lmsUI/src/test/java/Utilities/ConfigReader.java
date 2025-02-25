@@ -59,7 +59,7 @@ public class ConfigReader {
 	}
 	
 	public static String getUrl() {
-		return properties.getProperty("url");
+		return properties.getProperty("appUrl");
 	}
 	
 	public static String getUserName() {

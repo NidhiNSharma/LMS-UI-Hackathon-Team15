@@ -1,5 +1,14 @@
 package hooks;
 
+import org.openqa.selenium.WebDriver;
+import driverFactory.BasePage;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import io.cucumber.java.Scenario;
+import util.ConfigReader;
+
 import org.apache.logging.log4j.LogManager;
 import driverFactory.DriverManager;
 import org.apache.logging.log4j.Logger;
@@ -15,7 +24,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
 
-import Utilities.ConfigReader;
+import util.ConfigReader;
 
 public class applicationHooks {
 
@@ -65,3 +74,4 @@ public class applicationHooks {
 	}
 
 }
+
