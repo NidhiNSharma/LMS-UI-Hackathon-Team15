@@ -51,8 +51,4 @@ public class ElementUtil {
 			System.out.println("error inside sendkeys method:"+e.getMessage());
 		}	
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> a6a5fe2bb4669e626f6b58ed51f0e522b4366414
 }

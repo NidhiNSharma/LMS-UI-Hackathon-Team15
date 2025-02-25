@@ -17,27 +17,28 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import org.openqa.selenium.WebDriver;
+public class applicationHooks extends BasePage {
 
-	private WebDriver driver;
-		
-	@Before
-	public void setUp() {
+private WebDriver driver;
+
+@Before
+public void setUp() {
 	driver = driverManager(ConfigReader.getPropObject().getProperty("browser"));
-	
-  }
-	
-	@After
-	public void tearDownNScreenShot(Scenario scenario) {	
+
+}
+
+@After
+public void tearDownNScreenShot(Scenario scenario) {	
 	System.out.println("in tear down hooks");
 	if(scenario.isFailed()) {
-		
+
 		byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 		scenario.attach(screenshot, "image/png", "Failed Scenario Screenshot");
 		System.out.println("Screenshot attached for failed scenario: " + scenario.getName());
 	}	
-	
+
 	quitDriver();
-  }
+}
 
 }
 
