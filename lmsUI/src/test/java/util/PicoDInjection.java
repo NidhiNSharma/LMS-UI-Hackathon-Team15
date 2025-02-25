@@ -5,6 +5,7 @@ import pageObjects.ClassPage;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import pageObjects.ProgramPage;
+import pageObjects.BatchPage;
 
 public class PicoDInjection {
 

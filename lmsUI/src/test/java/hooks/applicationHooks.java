@@ -1,4 +1,5 @@
 package hooks;
+
 import org.openqa.selenium.WebDriver;
 import driverFactory.BasePage;
 import io.cucumber.java.After;
@@ -8,9 +9,14 @@ import org.openqa.selenium.TakesScreenshot;
 import io.cucumber.java.Scenario;
 import util.ConfigReader;
 
-public class applicationHooks extends BasePage {
+import org.apache.logging.log4j.LogManager;
+import driverFactory.DriverManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
-	// these variables are private as they are specific to this class only
+import org.openqa.selenium.WebDriver;
 
 	private WebDriver driver;
 		
