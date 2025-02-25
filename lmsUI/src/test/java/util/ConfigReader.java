@@ -10,11 +10,9 @@ public class ConfigReader {
 	private static void readConfigFile(){
 
 	try {
-		
 		pro = new Properties();
-		FileReader fr = new FileReader("src/test/resources/Config/config.properties");
-		pro.load(fr);
-		
+		FileReader file = new FileReader("src/test/resources/Config/config.properties");
+		pro.load(file);
 	   } catch (Exception e) {
 		      System.out.println(e.getMessage());
         }

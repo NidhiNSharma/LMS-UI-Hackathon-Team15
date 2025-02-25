@@ -8,14 +8,16 @@ import pageObjects.ProgramPage;
 
 public class PicoDInjection {
 
-	public LoginPage loginPage;
-	public HomePage homePage;
+	public LoginPage loginPage1;
+	public HomePage homePage1;
 	public ProgramPage programPage;
 	public BatchPage batchPage;
 	public ClassPage classPage;
 
 	
 	public PageUtils pageUtils;
+	public LoginPage loginPage;
+	public HomePage homePage;
 	public static String eXCEL = "src/test/resources/TestData/LMS_data.xlsx";
 	
 	 /* Invoke whenn there is a change to the results in the page
@@ -38,3 +40,4 @@ public class PicoDInjection {
 	}
 
 }
+
