@@ -1,3 +1,4 @@
+
 package util;
 
 import java.time.Duration;
@@ -7,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ElementUtil {
-
 
 	//common page load wait
 	  public static void implicitPageWait(WebDriver driver) {	
@@ -52,8 +52,4 @@ public class ElementUtil {
 			System.out.println("error inside sendkeys method:"+e.getMessage());
 		}	
 	}
-	
-	
-	
-	
 }

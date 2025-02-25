@@ -4,9 +4,9 @@ import java.io.FileReader;
 import java.util.Properties;
 
 public class ConfigReader {
-	
+
 	private static Properties pro=null; 
-	
+
 	private static void readConfigFile(){
 
 	try {

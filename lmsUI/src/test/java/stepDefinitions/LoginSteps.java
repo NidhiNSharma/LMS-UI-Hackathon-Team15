@@ -1,7 +1,16 @@
 
 package stepDefinitions;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.Assert;
+import util.ExcelReaderListMap;
+import util.LoggerLoad;
+
+
 import driverFactory.BasePage;
 import pageObjects.LoginPage;
 import util.PicoDInjection;
@@ -64,6 +73,23 @@ public class LoginSteps{
 		Assert.assertEquals(pageTitle, "LMS");
 		Assert.assertTrue(picoObject.homePage.isHomePageToolBarPresent());;
 	}
+	
+	//Datadriven from Excel
+	@When("Admin enter valid credentials from {string} and {int}")
+	public void admin_enter_valid_credentials_from_and(String SheetName, Integer rowNumber) throws InvalidFormatException, IOException, InterruptedException {
+		ExcelReaderListMap reader = new ExcelReaderListMap();
+		LoggerLoad.info("User enters login credentials");
+		List<Map<String, String>> testData = reader.getData(PicoDInjection.eXCEL, "Login");
+		String User_name = testData.get(rowNumber).get("user"); // Column heading
+		String Pass_word = testData.get(rowNumber).get("password"); // Column heading
+		String Select_role= testData.get(rowNumber).get("role");//Column Heading
+		picoObject.loginPage.sendUserName(User_name); 
+		picoObject.loginPage.sendPwdName(Pass_word);
+		picoObject.loginPage.sendRole(Select_role);
+		LoggerLoad.info("Login credentials entered");
+
+	}
+	
 
 
 
