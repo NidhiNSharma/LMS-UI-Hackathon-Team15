@@ -22,11 +22,6 @@ public class ProgramSteps {
 		this.picoObject = picoObject;
 	}
 
-	@Given("Admin is logged in to LMS Portal")
-	public void admin_is_logged_in_to_lms_portal() {
-		LoggerLoad.info("Admin logged in to LMS Portal");
-	}
-
 	// -----#Navigation--------
 	@Given("Admin is on home page after Login")
 	public void admin_is_on_home_page_after_login() {

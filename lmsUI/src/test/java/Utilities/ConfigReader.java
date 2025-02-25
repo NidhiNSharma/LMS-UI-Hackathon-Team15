@@ -1,63 +1,27 @@
-package util;
-import java.io.FileReader;
-import java.util.Properties;
+package Utilities;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 public class ConfigReader {
 
-	private static Properties pro=null; 
-
-	private static void readConfigFile(){
-
-<<<<<<< HEAD
-	try {
-		pro = new Properties();
-		FileReader file = new FileReader("src/test/resources/Config/config.properties");
-		pro.load(file);
-	   } catch (Exception e) {
-		      System.out.println(e.getMessage());
-        }
-    }
 	
-=======
-		try {
-
-			pro = new Properties();
-			FileReader fr = new FileReader("src/test/resources/Config/config.properties");
-			pro.load(fr);
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
->>>>>>> 74c1483c2cff2e84c6a083aa36c39de27baf61c8
-	public static Properties getPropObject() {
-
-		if( pro == null ) {
-			readConfigFile();
-		}
-		return pro;
-	}
-
 	static Properties prop;
-
-
+	
 	public static Properties initializeProp() {
-
+		
 		try {
 			prop= new Properties();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 		try {
 			FileInputStream inputProp = new FileInputStream("src/test/resources/config/config.properties");
 			prop.load(inputProp);
-
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -93,15 +57,15 @@ public class ConfigReader {
 	public static void setBrowserType(String browser) {
 		browserType = browser;
 	}
-
+	
 	public static String getUrl() {
-		return properties.getProperty("url");
+		return properties.getProperty("appUrl");
 	}
-
+	
 	public static String getUserName() {
 		return properties.getProperty("username");
 	}
-
+	
 	public static String getPassword() {
 		return properties.getProperty("password");
 	}
@@ -112,4 +76,5 @@ public class ConfigReader {
 		else
 			return properties.getProperty("browser");
 	}
+
 }
