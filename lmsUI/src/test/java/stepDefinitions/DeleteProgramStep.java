@@ -5,16 +5,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.ProgramPagePart2;
-import pageObjects.LoginPage;
+import pageObjects.LoginPage2;
 
 public class DeleteProgramStep {
-	public LoginPage lp = new LoginPage();
+	public LoginPage2 lp = new LoginPage2();
 	public ProgramPagePart2 pp = new ProgramPagePart2();
 
 	@Given("Admin is on program page after reaching home")
 	public void admin_is_on_program_page_after_reaching_home() throws InterruptedException {
 		lp.openUrl();
-		lp.loginIntoTheApp("sdetnumpyninja@gmail.com", "Feb@2025");
+		lp.loginIntoTheAppWithValidCredentials();
 		pp.clickOnProgramPageLink();		
 		System.out.println("Inside Step-Admin is on program page after reaching home");
 	}
@@ -118,7 +118,7 @@ public class DeleteProgramStep {
 
 	@Then("Admin can see Confirmation form disappears")
 	public void admin_can_see_confirmation_form_disappears() {
-		Assert.assertFalse(pp.validateElementDisplayed(pp.successAlert));
+		Assert.assertFalse(pp.validateElementDisplayed(pp.confirmationDialogBox));
 		System.out.println("Inside Step-Admin can see Confirmation form disappears");
 	}
 

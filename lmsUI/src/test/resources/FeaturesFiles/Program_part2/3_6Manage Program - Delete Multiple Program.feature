@@ -9,22 +9,22 @@ Feature: Manage Program - Delete Multiple Program
     Then Programs get selected
 
   Scenario: Verify Admin is able to delete Multiple programs
-    Given Admin is on Program page
+    Given Admin is on Program page and selects multiple programs "GeethaMultiple"
     When Admin clicks on the delete button on the left top of the program page
     Then Admin lands on Confirmation form
-    
-     Scenario: Verify Admin is able to click 'No'
-    Given Admin is on Confirmation form
+
+  Scenario: Verify Admin is able to click 'No'
+    Given Admin is on Confirmation form for multiple programs "GeethaMultiple"
     When Admin clicks on "No" button
     Then Admin can see Programs are still selected and not deleted
-    
-    Scenario: Verify Admin is able to close the window with "X"
-    Given Admin is on Program Confirm Deletion Page after selecting a program to delet
-    When Admin Click on "X" button
-    Then Admin can see Confirm Deletion form disappear
+
+  Scenario: Verify Admin is able to close the window with "X"
+    Given Admin is on Confirmation form for multiple programs "GeethaMultiple"
+    When Admin clicks on "X" button
+    Then Admin can see Confirmation form disappears
 
   Scenario: Verify Admin is able to click 'Yes'
-    Given Admin is on Confirmation form for deleting
+    Given Admin is on Confirmation form for multiple programs "GeethaMultiple"
     When Admin clicks on "Yes" button
     Then Admin can see "Successful  program deleted" message
 
@@ -32,6 +32,3 @@ Feature: Manage Program - Delete Multiple Program
     Given Admin is on Program page
     When Admin Searches for "GeethaMultiple"
     Then There should be zero results.
-
- 
-  

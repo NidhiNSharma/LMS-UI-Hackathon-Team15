@@ -4,18 +4,18 @@ Feature: Manage Program - Delete Program
     Given Admin is on program page after reaching home
 
   Scenario: Verify delete feature
-    Given Create a program "GeethanjaliABCM" on program page
-    When Admin search the program "GeethanjaliABCM" and clicks on delete button for a program
+    Given Create a program "GeethanjaliABCN" on program page
+    When Admin search the program "GeethanjaliABCN" and clicks on delete button for a program
     Then Admin will get confirm deletion popup
 
   Scenario: Verify Admin is able to click 'Yes'
-    Given Admin is on Confirm deletion form for "GeethanjaliABCM"
+    Given Admin is on Confirm deletion form for "GeethanjaliABCN"
     When Admin clicks on "Yes" button
     Then Admin can see 'Successful Program Deleted' message
 
   Scenario: Verify Admin is able to deleted program
     Given Admin is on Program page
-    When Admin Searches for "GeethanjaliABCM"
+    When Admin Searches for "GeethanjaliABCN"
     Then There should be zero results.
 
   Scenario: Verify Admin is able to click 'No'

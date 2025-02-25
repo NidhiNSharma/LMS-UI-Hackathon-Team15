@@ -18,7 +18,7 @@ public class ProgramPagePart2 extends BasePage{
 	public By searchBox = By.cssSelector("input#filterGlobal");
 	public By multiDeleteButton = By.cssSelector(".mat-card-title .p-button-danger");
 	public By deleteButtons=By.cssSelector("#deleteProgram");
-	public By checkBoxes=By.cssSelector("div.p-checkbox-box");
+	public By checkBoxes=By.cssSelector("td div.p-checkbox-box");
 	public By selectedCheckBoxes = By.cssSelector(".p-checkbox-box[aria-checked=\"true\"]");
 	public By programTableRows=By.cssSelector((".p-datatable-tbody tr"));
 	public By confirmationDialogBox= By.cssSelector("div.p-confirm-dialog");
@@ -28,13 +28,15 @@ public class ProgramPagePart2 extends BasePage{
 	public By dialogwarningMessage = By.cssSelector("span.p-confirm-dialog-message");
 	public By dialogBoxNoButton=By.cssSelector("button.p-confirm-dialog-reject");
 	public By dialogBoxYesButton= By.cssSelector("button.p-confirm-dialog-accept");
-	public By nextButton = By.cssSelector("span.pi-angle-right");
-	public By lastButton=By.cssSelector("span.pi-angle-double-right");
+	public By firstPageButton=By.cssSelector(".p-paginator-first");
+	public By prevPageButton=By.cssSelector(".p-paginator-prev");
+	public By nextPageButton = By.cssSelector("button.p-paginator-next");
+	public By lastPageButton=By.cssSelector("button.p-paginator-last");
 	public By totalNumberOfPrograms = By.cssSelector("div.p-d-flex");
 	public By currentDisplayedCount = By.cssSelector(".p-paginator-current");
 	public By programNameHeader =By.cssSelector("th[psortablecolumn='programName']");
 	public By programDescriptionHeader=By.cssSelector("th[psortablecolumn='programDescription']");
-	public By programStatus=By.cssSelector("th[psortablecolumn='programStatus']");
+	public By programStatusHeader=By.cssSelector("th[psortablecolumn='programStatus']");
 	public By successAlert=By.cssSelector( "div.p-toast");
 	public By programNameCells=By.cssSelector("tr td:nth-child(2)");
 	public By programDescriptionCells=By.cssSelector("tr td:nth-child(3)");
@@ -48,7 +50,19 @@ public class ProgramPagePart2 extends BasePage{
 	public By programDescriptionInput=By.cssSelector("input#programDescription");
 	public By statusRadioButtons=By.cssSelector(".radio p-radiobutton");
 	public By saveProgramButton=By.cssSelector("button#saveProgram");
-	//public By DeleteButtons=By.cssSelector("div.p-checkbox-box");
+	public By toastCloseIcon=By.cssSelector(".p-toast-icon-close-icon");
+	public By pageNumberButtons=By.cssSelector("button.p-paginator-page");
+	public By activePageNumberButton=By.cssSelector("button.p-paginator-page.p-highlight");
+	public By editProgramButton=By.cssSelector("#editProgram");
+	public By editProgramDialog=By.cssSelector("div.p-dialog");
+	public By programEditNameField=By.cssSelector("input#programName");
+	public By programEditDescriptionField=By.cssSelector("input#programDescription");
+	public By editRadioButtons=By.cssSelector(".radio p-radiobutton");
+	public By saveButtonOnEditDialog=By.cssSelector("button#saveProgram");
+	public By cancelButtononEditDialog=By.cssSelector("button[label=\"Cancel\"]");
+	public By astrickForNameField=By.cssSelector("label[for=\"programName\"] span");
+	public By astrickForDescriptionField=By.cssSelector("label[for=\"programDescription\"] span");
+	public By astrickForStatusField=By.cssSelector("label[for=\"online\"] span");
 
 	public void clickOnProgramPageLink() {
 		waitForElementToBeVisible(driver, programlink);
@@ -79,8 +93,9 @@ public class ProgramPagePart2 extends BasePage{
 		driver.findElement(searchBox).sendKeys(programName);
 	}
 
-	public void clickOncheckBoxes(Integer numberOfCheckBoxes) {
+	public void clickOncheckBoxes(Integer numberOfCheckBoxes) throws InterruptedException {
 		for (int i = 0; i < numberOfCheckBoxes; i++) {
+			Thread.sleep(1000);
 			driver.findElements(checkBoxes).get(i).click();
 		}
 	}
@@ -101,6 +116,12 @@ public class ProgramPagePart2 extends BasePage{
 		driver.findElement(locator).click();
 	}
 
+	public void clickElementByPosition(By locator, Integer position) {
+		waitForElementToBeVisible(driver, locator);
+		waitForElementNotVisible(driver, overlayBackdrop, 30);
+		driver.findElements(locator).get(position-1).click();
+	}
+
 	// Method to get the page title
 	public String getTextForElement(WebElement element) {
 		return element.getText();  // Return text from the given element
@@ -109,7 +130,6 @@ public class ProgramPagePart2 extends BasePage{
 	public void adminIsOncheckBoxes()  {
 		driver.findElement(checkBoxes).isSelected();
 	}
-
 
 	public String getTextForElement(By locator) {
 		String elementText = driver.findElement(locator).getText();
@@ -142,23 +162,41 @@ public class ProgramPagePart2 extends BasePage{
 	}
 
 	public static String getRandomString(Integer noOfChars) {
-        // Define the characters that can be used in the random string
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        
-        // Create a Random object
-        Random random = new Random();
-        
-        // StringBuilder to store the random string
-        StringBuilder randomString = new StringBuilder(5);
-        
-        // Generate a random string of 5 characters
-        for (int i = 0; i < noOfChars; i++) {
-            // Get a random index from the characters string
-            int index = random.nextInt(characters.length());
-            // Append the character at the random index
-            randomString.append(characters.charAt(index));
-        }
-        
-        return randomString.toString();
-    }
+		// Define the characters that can be used in the random string
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+		// Create a Random object
+		Random random = new Random();
+
+		// StringBuilder to store the random string
+		StringBuilder randomString = new StringBuilder(5);
+
+		// Generate a random string of 5 characters
+		for (int i = 0; i < noOfChars; i++) {
+			// Get a random index from the characters string
+			int index = random.nextInt(characters.length());
+			// Append the character at the random index
+			randomString.append(characters.charAt(index));
+		}
+		return randomString.toString();
+	}
+
+	public String getLastPageNumber() {
+		String displayedCountText = driver.findElement(currentDisplayedCount).getText();
+		Integer totalNumberOfPrograms = Integer.parseInt(displayedCountText.split(" ")[5]);
+		double result = (double) totalNumberOfPrograms / 10;
+		return Integer.toString((int) Math.ceil(result));
+	}
+
+	public void updateProgramName(String programName) {
+		driver.findElement(programEditDescriptionField).clear();
+		driver.findElement(programEditDescriptionField).sendKeys(programName+" description updated");
+		driver.findElement(saveProgramButton).click();
+	}
+
+	public void updateProgramDescription(String programName) {
+		driver.findElement(programEditNameField).clear();
+		driver.findElement(programEditNameField).sendKeys(programName + " updated");
+		driver.findElement(saveProgramButton).click();
+	}
 }

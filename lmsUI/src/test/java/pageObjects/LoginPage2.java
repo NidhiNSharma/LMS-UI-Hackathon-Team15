@@ -10,7 +10,7 @@ import Utilities.ConfigReader;
 
 //import DriverFactory.BasePage;
 
-public class LoginPage //extends BasePage
+public class LoginPage2
 {		
 
 	public WebDriver driver = DriverManager.getDriver();
@@ -39,7 +39,10 @@ public class LoginPage //extends BasePage
 		driver.findElement(lnkSignout).click(); 
 	}	
 
-	public void loginIntoTheApp(String userName, String password) throws InterruptedException {
+	public void loginIntoTheAppWithValidCredentials() throws InterruptedException {
+		String userName = ConfigReader.getUserName();
+		String password = ConfigReader.getPassword();
+
 		sendUserName(userName);
 		sendPwdName(password);
 		driver.findElement(selectPlaceholder).click();

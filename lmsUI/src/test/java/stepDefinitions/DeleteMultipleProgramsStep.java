@@ -11,14 +11,22 @@ public class DeleteMultipleProgramsStep {
 	
 	@Given("Admin creates multiple programs with name containing {string}")
 	public void create_multiple_programs_on_program_page(String programName) throws InterruptedException {
-		pp.createProgram(programName+pp.getRandomString(5));
-		pp.createProgram(programName+pp.getRandomString(5));
+//		pp.createProgram(programName+pp.getRandomString(5));
+//		pp.clickElement(pp.toastCloseIcon);
+//		pp.createProgram(programName+pp.getRandomString(5));
 		System.out.println("Create program on program page");
 	}
 
 
-	@When("Admin selects more than one program by clicking on the checkbox")
-	public void admin_selects_more_than_one_program_by_clicking_on_the_checkbox() {
+	@When("Admin searches {string} and selects more than one program by clicking on the checkbox")
+	public void admin_selects_more_than_one_program_by_clicking_on_the_checkbox(String programName) throws InterruptedException {
+		pp.searchProgram(programName);
+		pp.clickOncheckBoxes(2);
+	}
+	
+	@Given("Admin is on Program page and selects multiple programs {string}")
+	public void admin_is_on_program_page_and_selects_multiple_programs(String programName) throws InterruptedException {
+		pp.searchProgram(programName);
 		pp.clickOncheckBoxes(2);
 	}
 	
@@ -26,6 +34,14 @@ public class DeleteMultipleProgramsStep {
 	@Then("Programs get selected")
 	public void programs_get_selected() {
 		Assert.assertTrue(pp.areMultipleProgramsSelected());
+	}
+	
+	@Given("Admin is on Confirmation form for multiple programs {string}")
+	public void admin_selects_multiple_programs_and_clicks_delete_button(String programName) throws InterruptedException {
+		pp.searchProgram(programName);
+		pp.clickOncheckBoxes(2);
+		pp.clickElement(pp.multiDeleteButton); 
+		Assert.assertTrue(pp.validateElementDisplayed(pp.confirmationDialogBox));
 	}
 
 	@When("Admin clicks on the delete button on the left top of the program page")

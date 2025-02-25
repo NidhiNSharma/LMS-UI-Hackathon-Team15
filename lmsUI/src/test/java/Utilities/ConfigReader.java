@@ -61,6 +61,14 @@ public class ConfigReader {
 	public static String getUrl() {
 		return properties.getProperty("url");
 	}
+	
+	public static String getUserName() {
+		return properties.getProperty("username");
+	}
+	
+	public static String getPassword() {
+		return properties.getProperty("password");
+	}
 
 	public static String getBrowserType() throws Throwable {
 		if (browserType != null)
