@@ -39,6 +39,35 @@ public class ProgramPage {
     public static WebElement checkBoxStatus;
     @FindBy(xpath = "//*[@class=\"p-datatable-tbody\"]//td[1]")
     public static List<WebElement> rowCheckBox;
+    
+    @FindBy(xpath="/html[1]/body[1]/app-root[1]/app-program[1]/div[1]/mat-card[1]/mat-card-content[1]/p-table[1]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]")
+	WebElement programNameHeader;
+	
+	@FindBy(xpath="/html[1]/body[1]/app-root[1]/app-program[1]/div[1]/mat-card[1]/mat-card-content[1]/p-table[1]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[3]")
+	WebElement programDescriptionHeader;
+	
+	@FindBy(xpath="/html[1]/body[1]/app-root[1]/app-program[1]/div[1]/mat-card[1]/mat-card-content[1]/p-table[1]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[4]")
+	WebElement programStatusHeader;
+	
+	@FindBy(xpath="/html[1]/body[1]/app-root[1]/app-program[1]/div[1]/mat-card[1]/mat-card-content[1]/p-table[1]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[5]")
+	WebElement editDeleteHeader;
+	
+    
+    //Add new program
+    @FindBy(xpath = "//button[@class=\"mat-focus-indicator mat-menu-item ng-tns-c230-0\"]")
+    WebElement addProgram;
+    //sort arrows
+    @FindBy(xpath="/html/body/app-root/app-program/div/mat-card/mat-card-content/p-table/div/div[1]/table/thead/tr/th[2]/p-sorticon/i")
+	WebElement programNameArrowIcon;
+    
+    @FindBy(xpath="/html/body/app-root/app-program/div/mat-card/mat-card-content/p-table/div/div[1]/table/thead/tr/th[3]/p-sorticon/i")
+	WebElement programDescriptionArrowIcon;
+	
+	@FindBy(xpath="/html/body/app-root/app-program/div/mat-card/mat-card-content/p-table/div/div[1]/table/thead/tr/th[4]/p-sorticon")
+	WebElement programStatusArrowIcon;
+	
+	@FindBy(xpath="//div[@class='p-checkbox-box']")
+	WebElement checkBox;
 
 	
 	public void clickProgramButton() {
@@ -76,31 +105,24 @@ public class ProgramPage {
 		return rowCheckBox;
 	}
 	public Object programNameHeaderValidation() {
-		// TODO Auto-generated method stub
-		return null;
+		return programNameHeader.getText();
 	}
 	public Object programDescriptionHeaderValidation() {
-		// TODO Auto-generated method stub
-		return null;
+		return programDescriptionHeader.getText();
 	}
 	public Object programStatusHeaderValidation() {
-		// TODO Auto-generated method stub
-		return null;
+		return programStatusHeader.getText();
 	}
 	public Object editDeleteHeaderValidation() {
-		// TODO Auto-generated method stub
-		return null;
+		return editDeleteHeader.getText();
 	}
 	public CharSequence programNameArrowIconValidation() {
-		// TODO Auto-generated method stub
-		return null;
+		return programNameArrowIcon.getText();
 	}
 	public CharSequence programDescriptionArrowIconValidation() {
-		// TODO Auto-generated method stub
-		return null;
+		return programDescriptionArrowIcon.getText();
 	}
 	public CharSequence programStatusArrowIconValidation() {
-		// TODO Auto-generated method stub
-		return null;
+		return programStatusArrowIcon.getText();
 	}
 }
