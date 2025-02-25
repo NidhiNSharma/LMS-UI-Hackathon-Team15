@@ -4,7 +4,7 @@ Feature: Search Text box validation
  Given Admin is logged in to LMS Portal
     
 
-  Scenario: validate search box functionality
+  Scenario Outline: validate search box functionality
   	Given Admin is on batch page
     When Admin enters the batch name in the search text box <batchname>
     Then Admin should see the filtered batches in the data table <batchname>

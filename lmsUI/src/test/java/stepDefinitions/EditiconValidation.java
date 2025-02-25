@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import driverFactory.BasePage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.BatchPage;
@@ -38,7 +39,7 @@ public void scenario_specified_in_and_rownumber_excel(String sheetName, Integer 
 	String Status=data.get("Status");
 	String Description=data.get("Description");
 	String NumberofClasses=data.get("NumberofClasses");	
-	picoObject.batchPage = new BatchPage(picoObject.loginPage.getDriver());
+	picoObject.batchPage = new BatchPage(BasePage.getDriver());
 	act=new Actions(picoObject.batchPage.getDriver());
 		if (scenario.equals("Validate Edit icon feature in any row")||
 				scenario.equals("Validate program name value is disabled to edit")||

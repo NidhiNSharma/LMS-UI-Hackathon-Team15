@@ -34,7 +34,7 @@ Feature: Batch Page validation
     Then Admin should see the checkbox in the datatable header row
     
 
-  Scenario: Validate Datatable headers
+  Scenario Outline: Validate Datatable headers
   	Given Admin is on the home Page
     When Admin Clicks on the Batch menu from the header
     Then Admin should see the datatable headers <List>

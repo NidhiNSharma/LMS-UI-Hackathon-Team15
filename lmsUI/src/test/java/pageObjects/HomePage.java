@@ -24,6 +24,10 @@ public class HomePage {
 	public static WebElement homeButton;
 	@FindBy(id="program")
 	public static WebElement programButton;
+
+	@FindBy(id="class")
+	public static WebElement classButton;
+
 	
 	
 	public String getHomePageTitle() {
@@ -49,5 +53,18 @@ public class HomePage {
 	   ProgramPage programpage = new ProgramPage(driver);//this driver has a reference home page driver
 	   return programpage;
    }
+
+
+   public void clickOnClass() {
+	   classButton.click();
+   }
+   //transitioning to Class page from homepage
+   public ClassPage getClasspageObject() {
+	   ClassPage classpage = new ClassPage(driver);//this driver has a reference home page driver
+	   return classpage;
    
+   }
+
 }
+   
+

@@ -1,9 +1,9 @@
 
 package pageObjects;
 
+
 import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -13,16 +13,18 @@ import driverFactory.BasePage;
 import util.ConfigReader;
 import util.ElementUtil;
 
+
+
 public class LoginPage extends BasePage
 
 {
 
 	WebDriver driver;
-
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
 
 	@FindBy(id = "username")
 	public WebElement loginusername;
@@ -46,14 +48,18 @@ public class LoginPage extends BasePage
 
 	public void navigateToAppUrl() throws InterruptedException {
 
+
 		String url = ConfigReader.getPropObject().getProperty("appUrl");
 		driver.get(url);
 		ElementUtil.implicitPageWait(driver);
 		System.out.println("Application URL in POM: " + url);
 
-		// driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(1000));
-		// Thread.sleep(5000);
+		
+		
+		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(1000));
+		//Thread.sleep(5000);
 	}
+
 
 	public String getPageUrl() {
 		return driver.getCurrentUrl();
@@ -76,9 +82,25 @@ public class LoginPage extends BasePage
 		ElementUtil.waitForElementClickablity(driver, loginrole, 20L).click();
 		ElementUtil.waitForElementClickablity(driver, loginrolevalue, 20L).click();
 	}
+
+	public void sendRole(String role) throws InterruptedException {
+		ElementUtil.waitForElementClickablity(driver, loginrole, 20L).click();
+		for (WebElement e : selectingRole)// Admin,Staff,Student
+		{
+			//System.out.println(e.getText());
+			//System.out.println("role :" + role);
+
+			if (e.getText().contains(role) ){
+				e.click();
+			}
+
+		}
+
+	}
+
 		
 	public void clickLogin() {
-		
+
 		ElementUtil.waitForElementClickablity(driver, loginBtn, 10L).click();
 		//btnLogin.click();
 	}
@@ -95,6 +117,5 @@ public class LoginPage extends BasePage
 	   return homePage;
 	}
 	
-	
-	
 }
+	

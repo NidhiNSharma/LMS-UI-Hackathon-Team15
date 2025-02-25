@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import driverFactory.BasePage;
 import io.cucumber.java.en.*;
 import pageObjects.BatchPage;
 import util.PicoDInjection;
@@ -28,7 +29,7 @@ public class SearchTextboxvalidation {
 	
 	@When("Admin enters the batch name in the search text box {string}")
 	public void admin_enters_the_batch_name_in_the_search_text_box(String text) throws InterruptedException {
-		picoObject.batchPage = new BatchPage(picoObject.loginPage.getDriver());
+		picoObject.batchPage = new BatchPage(BasePage.getDriver());
 		act = new Actions(picoObject.batchPage.getDriver());
 		act.moveToElement(picoObject.batchPage.txt_searchbox())
 		        .click()

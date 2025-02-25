@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import driverFactory.BasePage;
 import io.cucumber.java.en.*;
 import pageObjects.BatchPage;
 import util.PicoDInjection;
@@ -21,7 +22,7 @@ public class Deletebatchvalidation {
 	
 	@When("Admin clicks the delete Icon on any row")
 	public void admin_clicks_the_delete_icon_on_any_row() {
-		picoObject.batchPage = new BatchPage(picoObject.loginPage.getDriver());
+		picoObject.batchPage = new BatchPage(BasePage.getDriver());
 		List<WebElement> all_delete_btn= new ArrayList<>(picoObject.batchPage.pagiantion_delete_btn());;
 		all_delete_btn.get(0).click();
 
@@ -36,7 +37,7 @@ public class Deletebatchvalidation {
 	@Given("Admin is on the batch confirm popup page")
 	public void admin_is_on_the_batch_confirm_popup_page() {
 		picoObject.batchPage.click_batches_btn();
-		List<WebElement> all_delete_btn= new ArrayList<>(bp.pagiantion_delete_btn());;
+		List<WebElement> all_delete_btn= new ArrayList<>(picoObject.batchPage.pagiantion_delete_btn());;
 		all_delete_btn.get(0).click();
 		Assert.assertTrue(picoObject.batchPage.delete_confirm_popup_yes().isEnabled());
 	}

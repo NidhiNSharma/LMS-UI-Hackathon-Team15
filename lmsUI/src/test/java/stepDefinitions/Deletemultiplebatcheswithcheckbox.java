@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
+import driverFactory.BasePage;
 import io.cucumber.java.en.*;
 import pageObjects.BatchPage;
 import util.PicoDInjection;
@@ -23,7 +25,7 @@ public class Deletemultiplebatcheswithcheckbox {
 	
 @When("Admin clicks on the delete icon under the Manage batch header")
 public void admin_clicks_on_the_delete_icon_under_the_manage_batch_header() throws InterruptedException {
-	picoObject.batchPage = new BatchPage(picoObject.loginPage.getDriver());
+	picoObject.batchPage = new BatchPage(BasePage.getDriver());
 	 int totalPages = picoObject.batchPage.getTotalPages();
 	    System.out.println("Total pages: " + totalPages);	
 	    boolean elementFound = false;

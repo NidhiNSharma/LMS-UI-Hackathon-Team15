@@ -1,5 +1,4 @@
 
-
 package stepDefinitions;
 
 import java.io.IOException;
@@ -14,10 +13,10 @@ import util.LoggerLoad;
 
 import driverFactory.BasePage;
 import pageObjects.LoginPage;
+import util.PicoDInjection;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import util.PicoDInjection;
 
 public class LoginSteps{
 	
