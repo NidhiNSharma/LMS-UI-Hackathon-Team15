@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import org.testng.Assert;
+
+import driverFactory.BasePage;
 import io.cucumber.java.en.*;
 import pageObjects.BatchPage;
 import util.PicoDInjection;
@@ -14,7 +16,7 @@ public class Pagination {
 	
 	@When("Admin clicks next page link on the data table")
 	public void admin_clicks_next_page_link_on_the_data_table() {
-		picoObject.batchPage = new BatchPage(picoObject.homePage.getDriver());
+		picoObject.batchPage = new BatchPage(BasePage.getDriver());
 	    int totalPages = picoObject.batchPage.getTotalPages();
 	    for (int currentPage = 1; currentPage <= totalPages; currentPage++) {
 	        System.out.println("Page: " + currentPage);

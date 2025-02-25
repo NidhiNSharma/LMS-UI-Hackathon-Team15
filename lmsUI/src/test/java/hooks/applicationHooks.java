@@ -28,8 +28,7 @@ public class applicationHooks extends BasePage {
 		byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 		scenario.attach(screenshot, "image/png", "Failed Scenario Screenshot");
 		System.out.println("Screenshot attached for failed scenario: " + scenario.getName());
-	}
-	
+	}	
 	
 	quitDriver();
   }

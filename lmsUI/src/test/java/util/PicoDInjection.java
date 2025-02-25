@@ -1,4 +1,6 @@
 package util;
+import pageObjects.BatchPage;
+import pageObjects.ClassPage;
 
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
@@ -9,6 +11,9 @@ public class PicoDInjection {
 	public LoginPage loginPage;
 	public HomePage homePage;
 	public ProgramPage programPage;
+	public BatchPage batchPage;
+	public ClassPage classPage;
+
 	
 	public PageUtils pageUtils;
 	public static String eXCEL = "src/test/resources/TestData/LMS_data.xlsx";
@@ -31,4 +36,5 @@ public class PicoDInjection {
 		
 		return pageUtils;
 	}
+
 }

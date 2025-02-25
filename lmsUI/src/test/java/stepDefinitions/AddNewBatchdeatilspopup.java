@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
+import driverFactory.BasePage;
 import util.ExcelReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,7 +28,7 @@ public class AddNewBatchdeatilspopup {
 	
 	@Given("Admin is on the Batch Details Pop Up WIndow")
 	public void admin_is_on_the_batch_details_pop_up_w_indow() {
-		picoObject.batchPage = new BatchPage(picoObject.homePage.getDriver());
+		picoObject.batchPage = new BatchPage(BasePage.getDriver());
 		picoObject.batchPage.Click_batch_btn();
 		picoObject.batchPage.click_AddNewBatch_btn();
 		Assert.assertTrue(picoObject.batchPage.BatchDetails_text().isDisplayed());

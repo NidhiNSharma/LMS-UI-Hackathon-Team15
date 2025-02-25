@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import driverFactory.BasePage;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import pageObjects.BatchPage;
@@ -23,7 +24,7 @@ public class Logoutofthebatchpage {
 	}
 	@When("Admin clicks on the logout button")
 	public void admin_clicks_on_the_logout_button() throws InterruptedException {
-		picoObject.batchPage = new BatchPage(picoObject.homePage.getDriver());
+		picoObject.batchPage = new BatchPage(BasePage.getDriver());
 		picoObject.batchPage.click_BatchLogout_btn();
 	}
 

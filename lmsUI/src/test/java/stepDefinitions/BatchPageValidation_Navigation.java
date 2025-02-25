@@ -44,7 +44,7 @@ public class BatchPageValidation_Navigation {
 	@When("Admin Clicks on the Batch menu from the header")
 	public void admin_clicks_on_the_batch_menu_from_the_header() {
 
-		picoObject.batchPage = new BatchPage(picoObject.homePage.getDriver());
+		picoObject.batchPage = new BatchPage(BasePage.getDriver());
 		picoObject.batchPage.click_batches_btn();
 	}
 	@Then("Admin should be in the Manage Batch Page")

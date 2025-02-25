@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
+import driverFactory.BasePage;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import pageObjects.BatchPage;
@@ -23,7 +25,7 @@ public class AddNewBatch {
 	
 	@Given("Admin is on batch page")
 	public void admin_is_on_batch_page() throws Throwable {
-		picoObject.batchPage = new BatchPage(picoObject.homePage.getDriver());
+		picoObject.batchPage = new BatchPage(BasePage.getDriver());
 		picoObject.batchPage.click_batches_btn();
 		Assert.assertEquals(picoObject.batchPage.getCurrentUrl(),ConfigReader.getPropObject().getProperty("batchpageurl"));
 	}

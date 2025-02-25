@@ -1,8 +1,7 @@
 package pageObjects;
 
-import java.time.Duration;
 import java.util.List;
-
+import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +17,7 @@ import util.LoggerLoad;
 public class ProgramPage {
 	
 	public static final int DISAPPEAR_MEESAGE_WAIT_TIME_IN_SEC = 1;
+
 
 	WebDriver driver;
 	public ProgramPage(WebDriver driver) {
@@ -46,6 +46,7 @@ public class ProgramPage {
     public static WebElement checkBoxStatus;
     @FindBy(xpath = "//*[@class=\"p-datatable-tbody\"]//td[1]")
     public static List<WebElement> rowCheckBox;
+
     
     @FindBy(xpath="/html[1]/body[1]/app-root[1]/app-program[1]/div[1]/mat-card[1]/mat-card-content[1]/p-table[1]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]")
 	WebElement programNameHeader;
@@ -75,6 +76,7 @@ public class ProgramPage {
 	
 	@FindBy(xpath="//div[@class='p-checkbox-box']")
 	WebElement checkBox;
+
 
 	
 	public void clickProgramButton() {
@@ -111,6 +113,13 @@ public class ProgramPage {
 	public List<WebElement> checkBoxStatusInRows() {
 		return rowCheckBox;
 	}
+
+	public String validateManageClass() {
+		return manageProgramText.getText();
+	
+	}
+
+
 	public Object programNameHeaderValidation() {
 		return programNameHeader.getText();
 	}
@@ -345,4 +354,5 @@ public class ProgramPage {
 			
 			
 		}
+
 }

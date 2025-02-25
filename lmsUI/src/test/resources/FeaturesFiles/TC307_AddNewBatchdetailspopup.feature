@@ -3,7 +3,7 @@ Feature: Add New Batch details pop up
  Background:
  Given Admin is logged in to LMS Portal
  
-  Scenario: Validate all the fields exist in pop up
+  Scenario Outline: Validate all the fields exist in pop up
   	Given Admin is on the Batch Details Pop Up WIndow
     When Admin checks all the field
     Then The pop up should include the fields <Fields>
@@ -15,7 +15,7 @@ Feature: Add New Batch details pop up
 	|"Status : *"|
 	|"Number of Classes*"|
 
-  Scenario: Validate details in Add new batch pop up
+  Scenario Outline: Validate details in Add new batch pop up
   	Given Admin is on the Batch Details Pop Up WIndow
     When scenario specified is executed in "<SheetName>" and rownumber <RowNumber>
     Then Admin is able to see the message in sheetname "<SheetName>" and rownumber <RowNumber>

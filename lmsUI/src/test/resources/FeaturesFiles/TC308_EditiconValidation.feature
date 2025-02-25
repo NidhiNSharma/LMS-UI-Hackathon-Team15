@@ -3,7 +3,7 @@ Feature: Edit icon Validation
  Background:
  Given Admin is logged in to LMS Portal
 
-  Scenario: Validate Edit icon in batch page
+  Scenario Outline: Validate Edit icon in batch page
   	Given Admin is on batch page
     When scenario specified in "<SheetName>" and rownumber <RowNumber> Excel
     Then Admin sees the message in sheetname "<SheetName>" and rownumber <RowNumber>
