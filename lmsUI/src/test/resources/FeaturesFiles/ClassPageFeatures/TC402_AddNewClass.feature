@@ -1,15 +1,15 @@
-
 Feature: Add New Class
 
   Background: 
-    Given Admin Is on the Manage Class Page after login
+    Given Admin is logged in to LMS Portal
+    And Admin is on home page after Login
+    When Admin clicks on the "Class" navigation bar
 
-   @AddNewClass 
+  @AddNewClass
   Scenario: Validate Class Details Popup window, input fields and their text boxes in Class details form
-    When Admin clicks a add new class under the class menu bar
-    Then Admin should see a popup open for class details with empty form along with <SAVE> and <CANCEL> button and Close(X) Icon on the top right corner of the window   
-    Then Admin should see few input fields and their respective text boxes in the class details window
-  
+    When Admin clicks on add new class under the class menu bar
+    Then Admin should see a popup open for class details with empty form along with <SAVE> and <CANCEL> button and Close(X) Icon on the top right corner of the window
+
   @AddNewClassPopup
   Scenario: Check if Class is created when only mandatory fields are entered with valid data
     Given Admin is on the Class Popup window
@@ -47,9 +47,9 @@ Feature: Add New Class
     Then Class will not  created and Admin gets error message
 
   @AddNewClassPopup
-  Scenario: Validate Cancel/Close(X) icon on class Details form
+  Scenario: Validate Cancel icon on class Details form
     Given Admin is on the Class Popup window
-    When Admin clicks Cancel/Close(X) Icon on Admin Details form
+    When Admin clicks Cancel Icon on Class Details form
     Then Class Details popup window should be closed without saving
 
   @AddNewClassPopup

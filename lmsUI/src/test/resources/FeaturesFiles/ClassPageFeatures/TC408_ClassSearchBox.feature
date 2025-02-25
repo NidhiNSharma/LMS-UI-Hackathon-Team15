@@ -3,8 +3,9 @@ Feature: Search box
 
   Background: 
     Given Admin Is on the Manage Class Page after login
-
-  Scenario: Search class by Batch Name
+     And Admin clicks on the Search Button
+  
+  Scenario: Search class by Batch Name 
     When Admin enter the Batch Name in search textbox
     Then Admin should see Class details are searched by Batch Name
 

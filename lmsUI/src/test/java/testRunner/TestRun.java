@@ -1,13 +1,10 @@
 package testRunner;
 
 import io.cucumber.testng.CucumberOptions;
-
-import org.testng.annotations.DataProvider;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
-					features="src/test/resources/FeaturesFiles/Login.feature",
+					features="src/test/resources/FeaturesFiles/ClassPageFeatures/TC401_ClassPageValidation",
 					glue={"stepDefinitions","hooks"},
 					monochrome=true,
 					//dryRun=false,
@@ -17,12 +14,12 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 public class TestRun extends AbstractTestNGCucumberTests{
 	
-	@Override
+/*	@Override
 	@DataProvider(parallel=true)
 
 	public Object[][] scenarios(){
 		
 		return super.scenarios();
 	
-}
+}*/
 }

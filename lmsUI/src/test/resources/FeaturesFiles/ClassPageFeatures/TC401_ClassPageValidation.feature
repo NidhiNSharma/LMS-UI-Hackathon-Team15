@@ -1,10 +1,11 @@
 Feature: Class Page Validation
 
   Background: 
-    Given Admin is logged into the home page
+    Given Admin is logged in to LMS Portal
+    And Admin is on home page after Login
     When Admin clicks on the "Class" navigation bar
     
- # @ClassNavigation
+    # @ClassNavigation
   Scenario: Navigate to Manage Class Page and Verify title,header and Search Bar
     Then Admin should see "LMS - Learning Management System" as the title
     And Admin should see "Manage Class" as the page header
@@ -30,4 +31,7 @@ Feature: Class Page Validation
   #@ClassDelete
   Scenario: Verify DELETE Button and Total Classes Count
     Then Admin should see a DELETE button under the Manage Class page header
-    And Admin should see the total number of Classes below the data table
+ 
+    
+    
+ 

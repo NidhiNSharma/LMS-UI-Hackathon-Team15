@@ -1,10 +1,5 @@
 @Navigation
 Feature: Navigation Validation from Manage Class to other Pages
-
-  Background: 
-    Given Admin is on Home page after Logged in
-    And clicks Class on the navigation bar
-    Then Admin lands on the Class page
   
   Scenario: Class link on navigation bar
     When Admin clicks on Class link on Manage Class page
