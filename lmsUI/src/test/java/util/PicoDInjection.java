@@ -11,7 +11,7 @@ public class PicoDInjection {
 	public ProgramPage programPage;
 	
 	public PageUtils pageUtils;
-	
+	public static String eXCEL = "src/test/resources/TestData/LMS_data.xlsx";
 	
 	 /* Invoke whenn there is a change to the results in the page
 	  (Number of rows / pages may change based on add / delete operations)*/

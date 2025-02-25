@@ -7,9 +7,8 @@ import org.testng.annotations.DataProvider;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
-					features={"src/test/resources/FeaturesFiles/TC001_Login.feature",
-							"src/test/resources/FeaturesFiles/TC201_ProgramPageValidation.feature"
-					},
+					features="src/test/resources/FeaturesFiles",
+							
 					glue={"stepDefinitions","hooks"},
 					//tags="@login and @home and @program",
 					monochrome=true,
